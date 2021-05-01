@@ -2,7 +2,7 @@
 import random
 import art
 
-deck = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+deck = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10] #11 is A and all the 10 are face-cards
 
 def score(cards): #sum of total points
     result = 0
@@ -21,14 +21,14 @@ def checkA(cards): #check if A is 1 or 11
 def addCard(cards): #add random card
     cards.append(deck[random.randint(0,len(deck)-1)])
 
-def isBlackjack(cards):
+def isBlackjack(cards):#check is there is a blackjack
   # print("using blackjack")
   if 11 in cards and 10 in cards and score(cards) == 21:
     return True
   else:
     return False
 
-def isPlayerWinner(player, bot):
+def isPlayerWinner(player, bot):#check if player won
   # print("using is player win")
   if score(player) > 21:
     return False
@@ -39,14 +39,14 @@ def isPlayerWinner(player, bot):
   elif score(player) < score(bot):
     return False
 
-def isDraw(player, bot):
+def isDraw(player, bot): # check if there is a draw
   # print("using draw")
   if score(player) == score(bot):
     return True
   else:
     return False
 
-def botTurn(cards):
+def botTurn(cards): # bot draw card
   while True:
     if score(cards) < 17:
       addCard(cards)
@@ -54,7 +54,7 @@ def botTurn(cards):
     else:
       break
 
-def blackjackGame():
+def blackjackGame(): # main code
 
     playerCard = []
     addCard(playerCard)
@@ -64,7 +64,9 @@ def blackjackGame():
     addCard(botCard)
     addCard(botCard)
 
-    while True:
+    #first two card appear
+
+    while True: #loop for player turn
       print(f"Your cards: {playerCard}, your score: {score(playerCard)}")
       print(f"Computer's first card: {botCard[0]}")
 
