@@ -71,19 +71,19 @@ def blackjackGame(): # main code
       print(f"Computer's first card: {botCard[0]}")
 
       if isBlackjack(botCard):
-        break
+        break #bot win
       elif isBlackjack(playerCard):
-        break
+        break #plater win
 
       drawCard = input("Type 'y' to get another card, type 'n' to pass:")
 
       if drawCard == 'y':
         addCard(playerCard)
-        checkA(playerCard)
+        checkA(playerCard) #11 or 1
         if score(playerCard) > 21:
-          break
+          break #player lose
       elif drawCard == 'n':
-        break
+        break #player pass turn to the bot
     
     botTurn(botCard)
 
@@ -109,7 +109,7 @@ def blackjackGame(): # main code
 
 
 
-while True:
+while True: # repeat game until not
   play = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower()
   if play == "n":
     break
